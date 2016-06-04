@@ -27,13 +27,9 @@ public class GetQuestions {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public ArrayList<Question> getIt() {
-    	Question question = new Question();
     	
     	TextGapper tg = new TextGapper();
-    	ArrayList<Question> generatedQuestions = tg.getQuestions("This is Sparta. This is Krasi");
-    	
-//    	question.setText("Bobi e _____");
-//    	question.setAnswer("mashina");
+    	ArrayList<Question> generatedQuestions = tg.getQuestions("Vikings used the Norwegian Sea and Baltic Sea for sea routes to the south.");
     	
         return generatedQuestions;
     }
