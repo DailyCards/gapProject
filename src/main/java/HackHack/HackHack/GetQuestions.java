@@ -3,10 +3,12 @@ package HackHack.HackHack;
 import java.util.ArrayList;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.gap.main.HtmlParser;
 import com.gap.main.TextGapper;
 
 import HackHack.HackHack.some.Question;
@@ -26,10 +28,12 @@ public class GetQuestions {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<Question> getIt() {
+    public ArrayList<Question> getIt(@HeaderParam("url") String url) {
+    	
+    	String inputText = HtmlParser.parseHtml(url);
     	
     	TextGapper tg = new TextGapper();
-    	ArrayList<Question> generatedQuestions = tg.getQuestions("Vikings used the Norwegian Sea and Baltic Sea for sea routes to the south.");
+    	ArrayList<Question> generatedQuestions = tg.getQuestions(inputText);
     	
         return generatedQuestions;
     }
