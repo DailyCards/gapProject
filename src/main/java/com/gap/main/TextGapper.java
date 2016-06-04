@@ -27,15 +27,19 @@ public class TextGapper {
             for (int i = 0; i < tags.size(); i++) {
                 if (!tags.get(i).equals("O")) {
                 	q.setAnswer(list.get(i));
+                	System.out.println(i);
+                	System.out.println(tags.get(i));
+                	System.out.println(list.get(i));
                 	list.set(i, new String(new char[list.get(i).length()]).replace("\0", GAP_CHAR));
                     
+                    Sentence sent = new Sentence(list);
+                    q.setText(sent.text());
+                    
+                    questions.add(q);
                     break;
                 }
             }
-            Sentence sent = new Sentence(list);
-            q.setText(sent.text());
-            
-            questions.add(q);
+
             counter++;
             if (counter == 10) {
 				break;
