@@ -19,8 +19,8 @@ public class TextGapper {
 	static HashSet<Integer> visitedIndexes = new HashSet<>();
 	static final String[] SET_VALUES = new String[] { "one", "the","two","first","second","current"
 			,"zero","daily","A","a","about","this","that","current","currently","-","\\","/",
-			"LRB","RRB","\\\\","\\","present","previous","past","CC-BY","years","days","today","tommorow",
-			"once","_","__"};
+			"-LRB-","-RRB-","\\\\","\\","present","previous","past","CC-BY","years","days","today","tommorow",
+			"once","_","__","LRB","RRB","One"};
 	public static final Set<String> MY_SET = new HashSet<String>(Arrays.asList(SET_VALUES));
 
 
