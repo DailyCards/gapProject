@@ -1,13 +1,15 @@
 package com.gap.main;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import HackHack.HackHack.some.Question;
-import edu.stanford.nlp.simple.*;
+import edu.stanford.nlp.simple.Document;
+import edu.stanford.nlp.simple.Sentence;
 
 public class TextGapper {
 
@@ -15,9 +17,15 @@ public class TextGapper {
 	static final int MAX_QUESTIONS = 9;
 	static Random rand = new Random();
 	static HashSet<Integer> visitedIndexes = new HashSet<>();
+	static final String[] SET_VALUES = new String[] { "one", "the","two","first","second","current"
+			,"zero","daily","A","a","about","this","that"};
+	public static final Set<String> MY_SET = new HashSet<String>(Arrays.asList(SET_VALUES));
+
+
 	
 
 	public List<Question> getQuestions(String inputText) {
+		
 		ArrayList<Question> questions = new ArrayList<>();
 
 		Document inputDoc = new Document(inputText);
@@ -47,8 +55,7 @@ public class TextGapper {
 
 			for (int i = 0; i < tags.size(); i++) {
 				int num = 0;
-				if (!tags.get(i).equals("O") && !list.get(i).equals("one")
-						&& ) {
+				if (!tags.get(i).equals("O") && !MY_SET.contains(list.get(i))) {
 					q.setAnswer(list.get(i));
 					System.out.println("tag: " + tags.get(i));
 					if (tags.get(i).equals("DATE")) {
