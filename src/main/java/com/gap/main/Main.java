@@ -32,7 +32,7 @@ public class Main {
 
         for (Sentence sentence : sentences) {
             System.out.println(sentence);
-            List<String> list = new ArrayList<>(sentence.words());
+            List<String> list = new ArrayList<>(sentence.posTags());
             List<String> tags = new ArrayList<>(sentence.nerTags());
 
             for (int i = 0; i < tags.size(); i++) {

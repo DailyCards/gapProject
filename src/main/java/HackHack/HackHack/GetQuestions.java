@@ -33,7 +33,7 @@ public class GetQuestions {
     	String inputText = HtmlParser.parseHtml(url);
     	
     	TextGapper tg = new TextGapper();
-    	ArrayList<Question> generatedQuestions = tg.getQuestions(inputText);
+    	ArrayList<Question> generatedQuestions = new ArrayList<>(tg.getQuestions(inputText));
     	
         return generatedQuestions;
     }
